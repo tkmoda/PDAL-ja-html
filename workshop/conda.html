@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conda &mdash; pdal.io</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/pdal.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://pdal.io/workshop/conda.html"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="QGIS" href="qgis.html" />
+    <link rel="prev" title="Software Installation" href="software.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> PDAL
+          </a>
+              <div class="version">
+                2.7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../download.html">Download</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../apps/index.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community.html">Community</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stages/stages.html">Stages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stages/readers.html">Readers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stages/writers.html">Writers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stages/filters.html">Filters</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dimensions.html">Dimensions</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../types.html">Types</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python.html">Python</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../java.html">Java</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Workshop</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="agenda.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lidar-introduction.html">Introduction to LiDAR</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="software.html">Software Installation</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Conda</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-is-conda">What is Conda</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-will-we-use-conda">How will we use Conda?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-conda-environment-workshop-usb">Installing Conda Environment (Workshop USB)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-conda">Installing Conda</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-conda-from-arcgis-pro">Using Conda From ArcGIS Pro</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qgis.html">QGIS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/index.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manipulation/index.html">Manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generation/index.html">Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="capstone.html">Final Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes.html">Notes</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/index.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PDAL</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html"> Documentation </a> &raquo;</li>
+      
+          <li><a href="index.html">Point Cloud Processing and Analysis with PDAL</a> &raquo;</li>
+      
+          <li><a href="software.html">Software Installation</a> &raquo;</li>
+      
+      <li>Conda</li>
+    
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/PDAL/PDAL/edit/master/doc/workshop/conda.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="qgis.html" class="btn btn-neutral float-right" title="QGIS" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="software.html" class="btn btn-neutral float-left" title="Software Installation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="conda">
+<span id="workshop-conda"></span><h1>Conda<a class="headerlink" href="#conda" title="Permalink to this heading"></a></h1>
+<span class="target" id="index-0"></span><section id="what-is-conda">
+<h2>What is Conda<a class="headerlink" href="#what-is-conda" title="Permalink to this heading"></a></h2>
+<p>Conda is an open source package management system and environment management system that runs
+on Windows, macOS and Linux. Conda quickly installs, runs, and updates packages and their dependencies.
+Conda easily creates, saves, loads and switches between environments on your local computer.
+It was created for Python programs, but it can package and distribute software for any language.</p>
+</section>
+<section id="how-will-we-use-conda">
+<h2>How will we use Conda?<a class="headerlink" href="#how-will-we-use-conda" title="Permalink to this heading"></a></h2>
+<p>PDAL stands on the shoulders of giants. It uses GDAL, GEOS, and
+<a class="reference internal" href="../development/compilation/index.html#building"><span class="std std-ref">many other dependencies</span></a>. Because of this, it is very
+challenging to build it yourself. We could easily burn an entire workshop
+learning the esoteric build mysteries of PDAL and all of its dependencies.
+Fortunately, Conda provides us a fully-featured known
+configuration to run our examples and exercises without having to suffer
+so much, and provides it for Windows, Linux, and macOS.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Not everyone uses Conda. Another alternative to get a known configuration
+is to go through the workshop using <a class="reference internal" href="../project/docker.html#development-docker"><span class="std std-ref">docker</span></a> as your platform. A
+previous edition of the workshop was provided using Docker, but it was
+found to be a bit too difficult to follow.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>PDAL does not have a python wheel package and thus is distributed via <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> conda
+channel. If you would like to know more about the limitations that prevent PDAL from being
+distributed as a pip package, you can read about it at the
+<a class="reference external" href="https://pypackaging-native.github.io/key-issues/native-dependencies/geospatial_stack/">pypackaging-native website</a></p>
+</div>
+</section>
+<section id="installing-conda-environment-workshop-usb">
+<h2>Installing Conda Environment (Workshop USB)<a class="headerlink" href="#installing-conda-environment-workshop-usb" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Once <a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">mambaforge</a> is installed, open a terminal and navigate to the location of your USB drive</p></li>
+<li><p>Uncompress the environment, activate it, and use the <code class="docutils literal notranslate"><span class="pre">conda-unpack</span></code> command</p></li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p>macOS Users</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/mambaforge/envs/pdal-workshop&quot;</span>
+$<span class="w"> </span>tar<span class="w"> </span>-xzf<span class="w"> </span>conda_environments/pdal-workshop_osx-arm64.tar.gz<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/mambaforge/envs/pdal-workshop&quot;</span>
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/mambaforge/envs/pdal-workshop/bin/activate&quot;</span>
+<span class="o">(</span>pdal-workshop<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>conda-unpack
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Windows Users</p>
+<blockquote>
+<div><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> <span class="k">mkdir</span> <span class="s2">&quot;</span><span class="nv">%userprofile%</span><span class="s2">\mambaforge\envs\pdal-workshop&quot;</span>
+<span class="gp">&gt;</span> tar -xvf ./conda_environments/pdal-workshop-win64.zip -C <span class="s2">&quot;</span><span class="nv">%userprofile%</span><span class="s2">\mambaforge\envs\pdal-workshop&quot;</span>
+<span class="gp">&gt;</span> <span class="k">call</span> <span class="s2">&quot;</span><span class="nv">%userprofile%</span><span class="s2">\mambaforge\envs\pdal-workshop\scripts\activate&quot;</span>
+<span class="gp gp-VirtualEnv">(pdal-workshop)</span> <span class="gp">&gt;</span> conda-unpack
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="installing-conda">
+<h2>Installing Conda<a class="headerlink" href="#installing-conda" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Copy the entire contents of your workshop USB key to a <code class="docutils literal notranslate"><span class="pre">PDAL</span></code> directory in your
+home directory (something like <code class="docutils literal notranslate"><span class="pre">C:\Users\hobu\PDAL</span></code>) or the equivalent for your OS.
+We will refer to this location for the rest of the workshop materials.</p></li>
+<li><p>Download and install the <a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">mambaforge</a> installer for your platform</p></li>
+<li><p>After installing mambaforge create your workshop by running</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> conda create -c conda-forge -n pdal-workshop
+</pre></div>
+</div>
+</li>
+<li><p>Then <em>activate</em> the new environment</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> conda activate pdal-workshop
+</pre></div>
+</div>
+</li>
+<li><p>Install PDAL, Entwine, and GDAL, and install it from <strong>conda-forge</strong></p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(pdal-workshop)</span> <span class="gp">&gt;</span> mamba install -c conda-forge python-pdal gdal entwine matplotlib
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Alternatively use the following <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file to create your environment</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pdal-workshop</span>
+<span class="nt">channels</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python=3.11</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pdal=2.6.2</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python-pdal</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gdal</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">untwine</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">geopandas</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-pack</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">conda-pack</span></code> package is used for packaging the pdal-workshop conda environment to go
+to the USB image, and is not needed otherwise</p>
+</div>
+</div></blockquote>
+</section>
+<section id="using-conda-from-arcgis-pro">
+<h2>Using Conda From ArcGIS Pro<a class="headerlink" href="#using-conda-from-arcgis-pro" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Launch the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">Command</span> <span class="pre">Prompt</span></code></p></li>
+<li><p>After launching, create the conda environment for the workshop</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> conda create -n pdal-workshop -c conda-forge python=3.11 --yes
+</pre></div>
+</div>
+</li>
+<li><p>Activate the newly created environment</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> activate pdal-workshop
+</pre></div>
+</div>
+</li>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">pdal</span></code></p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> conda install -c conda-forge pdal
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="qgis.html" class="btn btn-neutral float-right" title="QGIS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="software.html" class="btn btn-neutral float-left" title="Software Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <div class="info">
+      <a class="logo-link" href="https://hobu.co">
+        <div class="hobu-logo"></div>
+      </a>
+      <div class="copyright">
+      
+
+                    &copy;  2024
+                        <a href="https://github.com/abellgithub">Andrew Bell</a>,
+                        <a href="https://github.com/chambbj">Brad Chambers</a>,
+                        <a href="http://github.com/hobu">Howard Butler</a>,
+                        and
+                        <a href="https://github.com/PDAL/PDAL/graphs/contributors">others</a>.
+
+      
+      最終更新: 8月 05, 2024
+      </div>
+    </div>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <div class="footer">
+        <div class="container">
+                    &copy;  2024
+                        <a href="http://github.com/hobu">Howard Butler</a>,
+                        <a href="http://github.com/mpgerlek">Michael Gerlek</a>,
+                        and
+                        <a href="https://github.com/PDAL/PDAL/graphs/contributors">others</a>,
+                Last updated
+                    on 8月 05, 2024.
+        </div>
+    </div>
+
+</body>
+</html>
